@@ -1,0 +1,20 @@
+{
+    "name": "ampedweb/glide-url-helper",
+    "description": "Framework Agnositc Fluent url builder for Glide PHP Image Library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AmpedWeb\\GlideUrl\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chris Powell",
+            "email": "hosting@ampedwebdesign.co.uk"
+        }
+    ],
+    "require": {
+        "league/glide": "^2.0"
+    }
+}
