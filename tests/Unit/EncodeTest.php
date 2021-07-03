@@ -10,6 +10,43 @@ class EncodeTest extends TestCase
 
 //@todo Refactor Encode tests
 
+    public function testGifSetsCorrectValue()
+    {
+        $this->glideUrl->gif(50);
+        $this->assertEquals('gif', $this->glideUrl->getParams()['fm']);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+    }
+
+    public function testJpgSetsCorrectValue()
+    {
+        $this->glideUrl->jpeg(50);
+        $this->assertEquals('jpg', $this->glideUrl->getParams()['fm']);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+    }
+
+
+    public function testPjpgSetsCorrectValue()
+    {
+        $this->glideUrl->pjpeg(50);
+        $this->assertEquals('pjpg', $this->glideUrl->getParams()['fm']);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+    }
+
+    public function testPngSetsCorrectValue()
+    {
+        $this->glideUrl->png(50);
+        $this->assertEquals('png', $this->glideUrl->getParams()['fm']);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+    }
+
+
+    public function testWebPSetsCorrectValue()
+    {
+        $this->glideUrl->webp(50);
+        $this->assertEquals('webp', $this->glideUrl->getParams()['fm']);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+    }
+
 //    public function testGif()
 //    {
 //        $response = $this->get(glide_url('cat.png')->build()->gif()->url());
