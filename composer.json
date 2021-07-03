@@ -8,6 +8,11 @@
             "AmpedWeb\\GlideUrl\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "AmpedWeb\\GlideUrl\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Chris Powell",
@@ -16,5 +21,8 @@
     ],
     "require": {
         "league/glide": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4"
     }
 }
