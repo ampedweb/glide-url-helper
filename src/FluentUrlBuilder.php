@@ -57,6 +57,15 @@ class FluentUrlBuilder
     }
 
     /**
+     * @return string
+     */
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
+
+    /**
      * Parse either single or multiple presets
      *
      * @param $presets
