@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AmpedWeb\GlideInABox\Tests\Feature;
+namespace AmpedWeb\GlideUrl\Tests\Unit;
 
 
 use AmpedWeb\GlideUrl\Can\HasOrientation;
