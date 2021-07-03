@@ -23,17 +23,17 @@ class FluentUrlBuilder
      * The filepath of our image being manipulated
      * @var string
      */
-    protected string $path;
+    protected $path;
 
     /**
      * @var UrlBuilder
      */
-    protected UrlBuilder $urlBuilder;
+    protected $urlBuilder;
 
     /**
      * @var array
      */
-    protected array $buildParams;
+    protected $buildParams;
 
     /**
      * GlideUrl constructor.
