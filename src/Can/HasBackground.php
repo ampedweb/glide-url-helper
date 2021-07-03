@@ -4,7 +4,7 @@
 namespace AmpedWeb\GlideUrl\Can;
 
 use AmpedWeb\GlideUrl\Exceptions\InvalidColourException;
-use AmpedWeb\GlideUrl\GlideUrl;
+use AmpedWeb\GlideUrl\FluentUrlBuilder;
 
 /**
  * This trait provides background-related functionality
@@ -44,7 +44,7 @@ trait HasBackground
      *
      * @param string $colour
      *
-     * @return HasBackground|GlideUrl
+     * @return HasBackground|FluentUrlBuilder
      * @throws InvalidColourException
      * @see HasBackground::bg()
      */
