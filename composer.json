@@ -1,6 +1,6 @@
 {
     "name": "ampedweb/glide-url-helper",
-    "description": "Framework Agnositc Fluent url builder for Glide PHP Image Library",
+    "description": "Framework Agnostic Fluent url builder for Glide PHP Image Library",
     "type": "library",
     "license": "MIT",
     "autoload": {
