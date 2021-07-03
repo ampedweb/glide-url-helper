@@ -40,7 +40,6 @@ class Url
      */
     public function __construct(UrlBuilder $urlBuilder)
     {
-        //UrlBuilderFactory::create('/' . config('glideinabox.base_url') . '/', config('glideinabox.signature_key'))
         $this->urlBuilder = $urlBuilder;
         $this->buildParams = [];
     }
@@ -64,7 +63,7 @@ class Url
      *
      * @return array
      */
-    protected function parsePresets($presets)
+    protected function parsePresets($presets): array
     {
 
         if (is_array($presets)) {
@@ -97,7 +96,7 @@ class Url
     public function custom(array $params = [])
     {
 
-        return url($this->urlBuilder->getUrl($this->path, $params));
+        return $this->urlBuilder->getUrl($this->path, $params);
     }
 
     /*
@@ -124,7 +123,7 @@ class Url
      */
     public function url(): string
     {
-        return url($this->urlBuilder->getUrl($this->path, $this->buildParams));
+        return $this->urlBuilder->getUrl($this->path, $this->buildParams);
     }
 
     /**
