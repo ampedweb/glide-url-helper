@@ -1,5 +1,5 @@
 <?php
-
+namespace AmpedWeb\GlideUrl\Tests\Unit;
 
 use AmpedWeb\GlideUrl\Tests\TestCase;
 
