@@ -7,7 +7,24 @@ use AmpedWeb\GlideUrl\Tests\TestCase;
 class FluentUrlTest extends TestCase
 {
 
+    public function testPresetsMethod() {
 
+        $this->glideUrl->preset('small',['w'=>100]);
+
+        $this->assertEquals('small', $this->glideUrl->getParams()['p']);
+        $this->assertEquals(100, $this->glideUrl->getParams()['w']);
+    }
+
+    public function testPresetsMethodWitjArrau() {
+
+        $presetArray = ['small','large'];
+
+        $this->glideUrl->preset($presetArray,['w'=>100]);
+
+        $this->assertEquals('small,large',$this->glideUrl->getParams()['p']);
+
+        $this->assertEquals(100, $this->glideUrl->getParams()['w']);
+    }
 
     public function testBuildMethodIsFluent() {
         $this->assertEquals($this->glideUrl,$this->glideUrl->build());
