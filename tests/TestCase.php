@@ -23,7 +23,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
             $signatureKey
         );
 
-        $this->glideUrl = new FluentUrlBuilder($urlBuilder);
+        $this->glideUrl = (new FluentUrlBuilder($urlBuilder))->setPath('foo.png');
 
     }
 }
