@@ -57,7 +57,7 @@ trait HasEffects
      *
      * @param int $pixelation Pixelation - use values between 0 and 1000
      *
-     * @return HasEffects|\AmpedWeb\GlideUrl\Url
+     * @return HasEffects|\AmpedWeb\GlideUrl\GlideUrl
      * @see HasEffects::pixel()
      */
     public function pixelate(int $pixelation = 0)
@@ -102,7 +102,7 @@ trait HasEffects
      *                       - Filter::GREYSCALE,
      *                       - Filter::SEPIA
      *
-     * @return HasEffects|\AmpedWeb\GlideUrl\Url
+     * @return HasEffects|\AmpedWeb\GlideUrl\GlideUrl
      * @throws InvalidFilterException
      * @see HasEffects::filt()
      */

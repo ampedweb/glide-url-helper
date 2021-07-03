@@ -3,7 +3,7 @@
 
 namespace AmpedWeb\GlideUrl\Can;
 
-use AmpedWeb\GlideUrl\Url;
+use AmpedWeb\GlideUrl\GlideUrl;
 
 /**
  * Exposes image "adjustments" functionality
@@ -38,7 +38,7 @@ trait HasAdjustments
      *
      * @param int $brightness Brightness - use values between 0 and 100
      *
-     * @return HasAdjustments|Url
+     * @return HasAdjustments|GlideUrl
      * @see HasAdjustments::bri()
      */
     public function brightness(int $brightness = 0)
@@ -67,7 +67,7 @@ trait HasAdjustments
      *
      * @param int $contrast Contrast - use values between 0 and 100
      *
-     * @return HasAdjustments|Url
+     * @return HasAdjustments|GlideUrl
      * @see HasAdjustments::con()
      */
     public function contrast(int $contrast = 0)
@@ -96,7 +96,7 @@ trait HasAdjustments
      *
      * @param float $gamma Gamma - use values between 0.1 and 9.99
      *
-     * @return HasAdjustments|Url
+     * @return HasAdjustments|GlideUrl
      * @see HasAdjustments::gam()
      */
     public function gamma(float $gamma = 1.0)
@@ -125,7 +125,7 @@ trait HasAdjustments
      *
      * @param int $sharpness Shaprness - use values between 0 and 100
      *
-     * @return HasAdjustments|Url
+     * @return HasAdjustments|GlideUrl
      * @see HasAdjustments::sharp()
      */
     public function sharpen(int $sharpness = 0)

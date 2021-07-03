@@ -87,7 +87,7 @@ trait HasSize
      * @param int $width
      * @param int $height
      *
-     * @return HasSize|\AmpedWeb\GlideUrl\Url
+     * @return HasSize|\AmpedWeb\GlideUrl\GlideUrl
      */
     public function size(int $width, int $height)
     {

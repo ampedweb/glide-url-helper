@@ -4,7 +4,7 @@
 namespace AmpedWeb\GlideUrl\Can;
 
 
-use AmpedWeb\GlideUrl\Url;
+use AmpedWeb\GlideUrl\GlideUrl;
 
 /**
  * Trait Encode
@@ -21,7 +21,7 @@ trait HasEncode
      *
      * @param int|null $quality
      *
-     * @return Url|HasEncode
+     * @return GlideUrl|HasEncode
      */
     public function gif(int $quality = null)
     {
@@ -34,7 +34,7 @@ trait HasEncode
      *
      * @param int|null $quality
      *
-     * @return Url|HasEncode
+     * @return GlideUrl|HasEncode
      */
     public function jpeg(int $quality = null)
     {
@@ -47,7 +47,7 @@ trait HasEncode
      *
      * @param int|null $quality
      *
-     * @return Url|HasEncode
+     * @return GlideUrl|HasEncode
      */
     public function pjpeg(int $quality = null)
     {
@@ -60,7 +60,7 @@ trait HasEncode
      *
      * @param int|null $quality
      *
-     * @return Url|HasEncode
+     * @return GlideUrl|HasEncode
      */
     public function png(int $quality = null)
     {
@@ -73,7 +73,7 @@ trait HasEncode
      *
      * @param int|null $quality
      *
-     * @return Url|HasEncode
+     * @return GlideUrl|HasEncode
      */
     public function webp(int $quality = null)
     {
@@ -86,7 +86,7 @@ trait HasEncode
      *
      * @param int|null $quality
      *
-     * @return Url|HasEncode
+     * @return GlideUrl|HasEncode
      */
     public function quality(int $quality = null)
     {

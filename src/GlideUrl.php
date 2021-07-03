@@ -15,7 +15,7 @@ use AmpedWeb\GlideUrl\Can\HasSize;
 use AmpedWeb\GlideUrl\Can\HasWatermarks;
 use League\Glide\Urls\UrlBuilder;
 
-class Url
+class GlideUrl
 {
     use HasOrientation, HasFlip, HasCrop, HasSize, HasPixelDensity, HasAdjustments, HasEffects, HasBorder, HasWatermarks, HasBackground, HasEncode;
 
@@ -48,9 +48,9 @@ class Url
     /**
      * @param string $path
      *
-     * @return Url
+     * @return GlideUrl
      */
-    public function setPath(string $path): Url
+    public function setPath(string $path): GlideUrl
     {
         $this->path = $path;
         return $this;
@@ -80,9 +80,9 @@ class Url
      * @param       $presets
      * @param array $params
      *
-     * @return Url
+     * @return GlideUrl
      */
-    public function preset($presets, array $params = []): Url
+    public function preset($presets, array $params = []): GlideUrl
     {
         $this->buildParams = array_merge($this->parsePresets($presets), $params);
         return $this;
@@ -109,7 +109,7 @@ class Url
      *
      * @return $this
      */
-    public function build(): Url
+    public function build(): GlideUrl
     {
         $this->buildParams = [];
 
