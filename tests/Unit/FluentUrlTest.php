@@ -73,4 +73,27 @@ class FluentUrlTest extends TestCase
     {
         $this->assertIsArray($this->glideUrl->getParams());
     }
+
+
+    public function testPathClosure() {
+
+        $this->glideUrl->setPathClosure(function($path) {
+            return 'bar'.$path;
+        });
+
+        $this->assertEquals('barfoo.png',$this->glideUrl->getPath());
+
+    }
+
+    public function testUrlClosure() {
+
+        $this->glideUrl->setUrlClosure(function($url) {
+            return 'bar'.$url;
+        });
+
+        $urlParsed = parse_url($this->glideUrl->url());
+
+        $this->assertNotFalse(strpos($urlParsed['path'],'bar'));
+
+    }
 }

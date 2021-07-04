@@ -13,6 +13,7 @@ use AmpedWeb\GlideUrl\Can\HasOrientation;
 use AmpedWeb\GlideUrl\Can\HasPixelDensity;
 use AmpedWeb\GlideUrl\Can\HasSize;
 use AmpedWeb\GlideUrl\Can\HasWatermarks;
+use Closure;
 use League\Glide\Urls\UrlBuilder;
 
 class FluentUrlBuilder
@@ -35,6 +36,17 @@ class FluentUrlBuilder
      */
     protected $buildParams;
 
+
+    /**
+     * @var Closure|null
+     */
+    protected $pathClosure = null;
+
+    /**
+     * @var Closure|null
+     */
+    protected $urlClosure = null;
+
     /**
      * GlideUrl constructor.
      */
@@ -42,6 +54,7 @@ class FluentUrlBuilder
     {
         $this->urlBuilder = $urlBuilder;
         $this->buildParams = [];
+
     }
 
 
@@ -57,12 +70,43 @@ class FluentUrlBuilder
     }
 
     /**
+     * @param Closure $pathClosure
+     *
+     * @return FluentUrlBuilder
+     */
+    public function setPathClosure(Closure $pathClosure): FluentUrlBuilder
+    {
+        $this->pathClosure = $pathClosure;
+        return $this;
+    }
+
+    /**
+     * @param Closure $urlClosure
+     *
+     * @return FluentUrlBuilder
+     */
+    public function setUrlClosure(Closure $urlClosure): FluentUrlBuilder
+    {
+        $this->urlClosure = $urlClosure;
+        return $this;
+    }
+
+
+    /**
      * @return string
      */
-    public function getPath(): string
-    {
+    public function getPath():string {
+
+        $pathClosure = $this->pathClosure;
+
+        if($pathClosure instanceof Closure) {
+            return $pathClosure($this->path);
+        }
+
         return $this->path;
+
     }
+
 
 
     /**
@@ -97,16 +141,37 @@ class FluentUrlBuilder
         return $this;
     }
 
+
+    /**
+     * @param $path
+     * @param $params
+     *
+     * @return string
+     */
+    protected function buildUrl($path,$params): string
+    {
+
+        $url = $this->urlBuilder->getUrl($path, $params);
+
+        $urlClosure = $this->urlClosure;
+
+        if($urlClosure instanceof Closure) {
+            return $urlClosure($url);
+        }
+
+        return $url;
+    }
+
     /**
      * @param array $params
      *
-     * @return mixed
+     * @return string
      */
-    public function custom(array $params = [])
+    public function custom(array $params = []): string
     {
-
-        return $this->urlBuilder->getUrl($this->path, $params);
+        return $this->buildUrl($this->path,$params);
     }
+
 
     /*
      * Fluent Interface Functions
@@ -132,7 +197,7 @@ class FluentUrlBuilder
      */
     public function url(): string
     {
-        return $this->urlBuilder->getUrl($this->path, $this->buildParams);
+        return $this->buildUrl($this->path, $this->buildParams);
     }
 
     /**
@@ -144,4 +209,5 @@ class FluentUrlBuilder
     {
         return $this->buildParams;
     }
+
 }
