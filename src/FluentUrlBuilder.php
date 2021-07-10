@@ -169,7 +169,7 @@ class FluentUrlBuilder
      */
     public function custom(array $params = []): string
     {
-        return $this->buildUrl($this->path,$params);
+        return $this->buildUrl($this->getPath(),$params);
     }
 
 
@@ -197,7 +197,7 @@ class FluentUrlBuilder
      */
     public function url(): string
     {
-        return $this->buildUrl($this->path, $this->buildParams);
+        return $this->buildUrl($this->getPath(), $this->buildParams);
     }
 
     /**
