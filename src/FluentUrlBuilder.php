@@ -210,4 +210,8 @@ class FluentUrlBuilder
         return $this->buildParams;
     }
 
+    public function __toString()
+    {
+        return $this->url();
+    }
 }
