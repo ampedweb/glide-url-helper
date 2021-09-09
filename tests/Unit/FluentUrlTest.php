@@ -96,4 +96,11 @@ class FluentUrlTest extends TestCase
         $this->assertNotFalse(strpos($urlParsed['path'],'bar'));
 
     }
+
+    public function testStringCast()
+    {
+        $this->glideUrl->setPath('foo');
+
+        $this->assertEquals('/img/foo?s=7af3bd98ffed0ef0d402c2d33bd88b43', (string)$this->glideUrl);
+    }
 }
