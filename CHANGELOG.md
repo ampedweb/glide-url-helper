@@ -30,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `markY()`
   - `markPad()`
 - Glide FluentUrlBuilder instances can now be cloned using the `FluentUrlBuilder::clone()`
+- Avif support via `FluentUrlBuilder::avif()`
 
 ### Fixed
 - Setting an encoding option without an explicit quality value clears the quality parameter

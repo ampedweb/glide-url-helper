@@ -47,6 +47,13 @@ class EncodeTest extends TestCase
         $this->assertEquals(50, $this->glideUrl->getParams()['q']);
     }
 
+    public function testAvifSetsCorrectValue()
+    {
+        $this->glideUrl->avif(50);
+        $this->assertEquals('avif', $this->glideUrl->getParams()['fm']);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+    }
+
     public function testQualityIsClearedWhenNotExplicitlyPassed()
     {
         $this->glideUrl->jpeg(50);
