@@ -191,6 +191,16 @@ class FluentUrlBuilder
     }
 
     /**
+     * Create a clone of the current URL Builder
+     *
+     * @return FluentUrlBuilder
+     */
+    public function clone(): FluentUrlBuilder
+    {
+        return clone($this);
+    }
+
+    /**
      * Get the URL to your image after building the configuration
      *
      * @return string

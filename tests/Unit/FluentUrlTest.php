@@ -227,4 +227,18 @@ class FluentUrlTest extends TestCase
         $foo->markHeight(20)->markHeight(50);
         $this->assertEquals(50, $foo->getParams()['markh']);
     }
+
+    public function testCloningAGlideUrl()
+    {
+        $foo = $this->glideUrl->setPath('foo')->width(45)->fit(Fit::CONTAIN)->jpeg();
+        $bar = $foo->clone()->png()->width(120);
+
+        $this->assertNotEmpty($bar, $foo);
+
+        $this->assertEquals('png', $bar->getParams()['fm']);
+        $this->assertEquals(120, $bar->getParams()['w']);
+
+        $this->assertEquals('jpg', $foo->getParams()['fm']);
+        $this->assertEquals(45, $foo->getParams()['w']);
+    }
 }
