@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   relevant Glide parameter is removed as appropriate
 - Filters can be cleared by calling `filt()` with no arguments
 - Flip can be cleared by calling `flip()` with no arguments
+- Orientation can be cleared by calling `orientation()` with no arguments
 
 ### Fixed
 - Setting an encoding option without an explicit quality value clears the quality parameter
