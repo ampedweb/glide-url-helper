@@ -54,4 +54,10 @@ class OrientationTest extends TestCase
         $this->glideUrl->orientation(HasOrientation::$ORIENTATION_270);
         $this->assertEquals('270', $this->glideUrl->getParams()['or']);
     }
+
+    public function testOrientationCanBeRemoved()
+    {
+        $this->glideUrl->orientation(HasOrientation::$ORIENTATION_270)->orientation();
+        $this->assertArrayNotHasKey('or', $this->glideUrl->getParams());
+    }
 }

@@ -17,6 +17,19 @@ use AmpedWeb\GlideUrl\FluentUrlBuilder;
 trait HasEncode
 {
     /**
+     * Encode the image to AVIF
+     *
+     * @param int|null $quality
+     *
+     * @return FluentUrlBuilder
+     */
+    public function avif(int $quality = null)
+    {
+        $this->buildParams['fm'] = 'avif';
+        return $this->quality($quality);
+    }
+
+    /**
      * Encode the image to GIF
      *
      * @param int|null $quality
@@ -90,6 +103,8 @@ trait HasEncode
      */
     public function quality(int $quality = null)
     {
+        unset($this->buildParams['q']);
+
         if ($quality !== null) {
             $this->buildParams['q'] = $quality;
         }

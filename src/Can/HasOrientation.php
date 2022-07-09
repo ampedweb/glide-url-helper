@@ -27,7 +27,9 @@ trait HasOrientation
      *
      * The `auto` option uses Exif data to decide on orientation.
      *
-     * @param string $orientation One of:
+     * If $orientation is not passed, or `null` is passed, the orientation Glide parameter is removed
+     *
+     * @param string|null $orientation One of:
      *                            - 'auto'
      *                            - '0'
      *                            - '90'
@@ -43,18 +45,23 @@ trait HasOrientation
      * @return $this
      * @throws InvalidOrientationException
      */
-    public function orientation(string $orientation)
+    public function orientation(string $orientation = null)
     {
         if ($orientation !== Rotate::AUTO &&
             $orientation !== Rotate::R0 &&
             $orientation !== Rotate::R90 &&
             $orientation !== Rotate::R180 &&
-            $orientation !== Rotate::R270
+            $orientation !== Rotate::R270 &&
+            $orientation !== null
         ) {
             throw new InvalidOrientationException();
         }
 
         $this->buildParams['or'] = $orientation;
+
+        if ($orientation === null) {
+            unset($this->buildParams['or']);
+        }
 
         return $this;
     }

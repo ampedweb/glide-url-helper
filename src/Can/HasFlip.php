@@ -19,10 +19,13 @@ trait HasFlip
     /**
      * Flip the image
      *
-     * @param string $flip One of:
+     * If $flip is `null`, the flip parameter is removed
+     *
+     * @param string|null $flip One of:
      *                     - 'both',
      *                     - 'h',
      *                     - 'v'.
+     *                     - null
      *                     Or you can use the interface constants:
      *                     - Flip::BOTH
      *                     - FLip::HORIZONTAL
@@ -31,16 +34,21 @@ trait HasFlip
      * @return $this
      * @throws InvalidFlipException
      */
-    public function flip(string $flip)
+    public function flip(string $flip = null)
     {
         if ($flip !== Flip::BOTH &&
             $flip !== Flip::HORIZONTAL &&
-            $flip !== Flip::VERTICAL
+            $flip !== Flip::VERTICAL &&
+            $flip !== null
         ) {
             throw new InvalidFlipException();
         }
 
         $this->buildParams['flip'] = $flip;
+
+        if ($flip === null) {
+            unset($this->buildParams['flip']);
+        }
 
         return $this;
     }

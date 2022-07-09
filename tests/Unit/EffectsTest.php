@@ -25,6 +25,13 @@ class EffectsTest extends TestCase
         $this->assertSame($this->glideUrl, $this->glideUrl->filt('greyscale'));
     }
 
+    public function testFiltCanBeRemoved()
+    {
+        $this->glideUrl->filt(Filter::GREYSCALE)->filt();
+
+        $this->assertArrayNotHasKey('filt', $this->glideUrl->getParams());
+    }
+
     public function testBlurSetsCorrectValues()
     {
         $this->glideUrl->blur(45);

@@ -57,6 +57,9 @@ class SizeTest extends TestCase
     {
         $this->glideUrl->width(50);
         $this->assertEquals(50, $this->glideUrl->getParams()['w']);
+
+        $this->glideUrl->width();
+        $this->assertArrayNotHasKey('w', $this->glideUrl->getParams());
     }
 
     public function testWidthIsFluent()
@@ -68,6 +71,9 @@ class SizeTest extends TestCase
     {
         $this->glideUrl->height(100);
         $this->assertEquals(100, $this->glideUrl->getParams()['h']);
+
+        $this->glideUrl->height();
+        $this->assertArrayNotHasKey('h', $this->glideUrl->getParams());
     }
 
     public function testHeightIsFluent()
@@ -80,6 +86,14 @@ class SizeTest extends TestCase
         $this->glideUrl->size(320,240);
         $this->assertEquals(320, $this->glideUrl->getParams()['w']);
         $this->assertEquals(240, $this->glideUrl->getParams()['h']);
+
+        $this->glideUrl->size(null, 25);
+        $this->assertArrayNotHasKey('w', $this->glideUrl->getParams());
+        $this->assertEquals(25, $this->glideUrl->getParams()['h']);
+
+        $this->glideUrl->size(25);
+        $this->assertArrayNotHasKey('h', $this->glideUrl->getParams());
+        $this->assertEquals(25, $this->glideUrl->getParams()['w']);
     }
 
     public function testSizeIsFluent()

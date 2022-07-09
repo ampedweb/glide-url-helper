@@ -5,6 +5,7 @@ namespace AmpedWeb\GlideUrl\Tests\Unit;
 
 use AmpedWeb\GlideUrl\Exceptions\InvalidFitException;
 use AmpedWeb\GlideUrl\Exceptions\InvalidMarkPositionException;
+use AmpedWeb\GlideUrl\Interfaces\Fit;
 use AmpedWeb\GlideUrl\Tests\TestCase;
 
 class WatermarksTest extends TestCase
@@ -151,5 +152,41 @@ class WatermarksTest extends TestCase
 
         $this->glideUrl->markAlpha(999);
         $this->assertEquals(100, $this->glideUrl->getParams()['markalpha']);
+    }
+
+    public function testMarkCanBeCleared()
+    {
+        $this->glideUrl->mark('foo')->mark();
+        $this->assertArrayNotHasKey('mark', $this->glideUrl->getParams());
+    }
+
+    public function testMarkWidthCanBeCleared()
+    {
+        $this->glideUrl->markWidth(32)->markWidth();
+        $this->assertArrayNotHasKey('markw', $this->glideUrl->getParams());
+    }
+
+    public function testMarkHeightCanBeCleared()
+    {
+        $this->glideUrl->markHeight(54)->markHeight();
+        $this->assertArrayNotHasKey('markh', $this->glideUrl->getParams());
+    }
+
+    public function testMarkXCanBeCleared()
+    {
+        $this->glideUrl->markX(43)->markX();
+        $this->assertArrayNotHasKey('markx', $this->glideUrl->getParams());
+    }
+
+    public function testMarkYCanBeCleared()
+    {
+        $this->glideUrl->markY(89)->markY();
+        $this->assertArrayNotHasKey('marky', $this->glideUrl->getParams());
+    }
+
+    public function testMarkPadCanBeCleared()
+    {
+        $this->glideUrl->markPad('5w')->markPad();
+        $this->assertArrayNotHasKey('markpad', $this->glideUrl->getParams());
     }
 }

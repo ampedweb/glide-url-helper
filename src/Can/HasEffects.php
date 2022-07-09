@@ -68,7 +68,9 @@ trait HasEffects
     /**
      * Applies a filter effect to the image.  Accepts greyscale or sepia.
      *
-     * @param string $filter Filter to apply.  Acceptable values are:
+     * Filter is removed if `null` is passed.
+     *
+     * @param string|null $filter Filter to apply.  Acceptable values are:
      *                       - 'greyscale',
      *                       - 'sepia'.
      *
@@ -79,14 +81,20 @@ trait HasEffects
      * @return HasEffects
      * @throws InvalidFilterException
      */
-    public function filt(string $filter)
+    public function filt(string $filter = null)
     {
         if ($filter !== Filter::GREYSCALE &&
-            $filter !== Filter::SEPIA) {
+            $filter !== Filter::SEPIA &&
+            $filter !== null
+        ) {
             throw new InvalidFilterException();
         }
 
         $this->buildParams['filt'] = $filter;
+
+        if ($filter === null) {
+            unset($this->buildParams['filt']);
+        }
 
         return $this;
     }
@@ -94,7 +102,9 @@ trait HasEffects
     /**
      * Applies a filter effect to the image.  Accepts greyscale or sepia.
      *
-     * @param string $filter Filter to apply.  Acceptable values are:
+     * Filter is removed if `null` is passed.
+     *
+     * @param string|null $filter Filter to apply.  Acceptable values are:
      *                       - 'greyscale',
      *                       - 'sepia'.
      *
@@ -106,7 +116,7 @@ trait HasEffects
      * @throws InvalidFilterException
      * @see HasEffects::filt()
      */
-    public function filter(string $filter)
+    public function filter(string $filter = null)
     {
         return $this->filt($filter);
     }

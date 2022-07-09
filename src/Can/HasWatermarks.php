@@ -56,13 +56,19 @@ trait HasWatermarks
      *
      * Must be a path to an image in the watermarks file system, as configured in your server.
      *
-     * @param string $filename
+     * If $filename is null, the watermark parameter is removed
+     *
+     * @param string|null $filename
      *
      * @return HasWatermarks
      */
-    public function mark(string $filename)
+    public function mark(string $filename = null)
     {
         $this->buildParams['mark'] = $filename;
+
+        if ($filename === null) {
+            unset($this->buildParams['mark']);
+        }
 
         return $this;
     }
@@ -70,13 +76,20 @@ trait HasWatermarks
     /**
      * Sets the width of the watermark in pixels, or using relative dimensions.
      *
-     * @param string $dimension
+     * If $dimension is null, the watermark width parameter is removed
+     *
+     * @param string|null $dimension
      *
      * @return HasWatermarks
      * @throws InvalidDimensionException
      */
-    public function markWidth(string $dimension)
+    public function markWidth(string $dimension = null)
     {
+        if ($dimension === null) {
+            unset($this->buildParams['markw']);
+            return $this;
+        }
+
         $this->buildParams['markw'] = $this->parseDimension($dimension);
 
         return $this;
@@ -85,13 +98,20 @@ trait HasWatermarks
     /**
      * Sets the height of the watermark in pixels, or using relative dimensions.
      *
-     * @param string $dimension
+     * If $dimension is null, the height parameter is removed
+     *
+     * @param string|null $dimension
      *
      * @return HasWatermarks
      * @throws InvalidDimensionException
      */
-    public function markHeight(string $dimension)
+    public function markHeight(string $dimension = null)
     {
+        if ($dimension === null) {
+            unset($this->buildParams['markh']);
+            return $this;
+        }
+
         $this->buildParams['markh'] = $this->parseDimension($dimension);
 
         return $this;
@@ -155,13 +175,20 @@ trait HasWatermarks
      *
      * Set in pixels, or using relative dimensions. Ignored if `markpos` is set to center.
      *
-     * @param string $dimension
+     * If $dimension is null, the parameter is removed
+     *
+     * @param string|null $dimension
      *
      * @return HasWatermarks
      * @throws InvalidDimensionException
      */
-    public function markX(string $dimension)
+    public function markX(string $dimension = null)
     {
+        if ($dimension === null) {
+            unset ($this->buildParams['markx']);
+            return $this;
+        }
+
         $this->buildParams['markx'] = $this->parseDimension($dimension);
 
         return $this;
@@ -172,13 +199,20 @@ trait HasWatermarks
      *
      * Set in pixels, or using relative dimensions. Ignored if `markpos` is set to center.
      *
-     * @param string $dimension
+     * If $dimension is null, the parameter is removed.
+     *
+     * @param string|null $dimension
      *
      * @return HasWatermarks
      * @throws InvalidDimensionException
      */
-    public function markY(string $dimension)
+    public function markY(string $dimension = null)
     {
+        if ($dimension === null) {
+            unset($this->buildParams['marky']);
+            return $this;
+        }
+
         $this->buildParams['marky'] = $this->parseDimension($dimension);
 
         return $this;
@@ -190,12 +224,20 @@ trait HasWatermarks
      * Basically a shortcut for using both `markx` and `marky`. Set in pixels, or using relative dimensions. Ignored if
      * `markpos` is set to center.
      *
-     * @param string $dimension
+     * If $dimension is null, the parameter is removed.
+     *
+     * @param string|null $dimension
      *
      * @return HasWatermarks
+     * @throws InvalidDimensionException
      */
-    public function markPad(string $dimension)
+    public function markPad(string $dimension = null)
     {
+        if ($dimension === null) {
+            unset ($this->buildParams['markpad']);
+            return $this;
+        }
+
         $this->buildParams['markpad'] = $this->parseDimension($dimension);
 
         return $this;

@@ -34,4 +34,10 @@ class FlipTest extends TestCase
         $this->glideUrl->flip(Flip::BOTH);
         $this->assertEquals('both', $this->glideUrl->getParams()['flip']);
     }
+
+    public function testFlipCanBeCleared()
+    {
+        $this->glideUrl->flip(Flip::BOTH)->flip();
+        $this->assertArrayNotHasKey('flip', $this->glideUrl->getParams());
+    }
 }
