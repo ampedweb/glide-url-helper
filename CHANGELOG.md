@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Height and width parameter can be cleared by calling `height()` or `width()` with no argument.
+  This also applies to `size()` - both `width` and `height` arguments are optional and the 
+  relevant Glide parameter is removed as appropriate
+
 ### Fixed
 - Setting an encoding option without an explicit quality value clears the quality parameter
 
