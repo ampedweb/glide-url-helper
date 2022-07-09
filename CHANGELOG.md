@@ -22,6 +22,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Filters can be cleared by calling `filt()` with no arguments
 - Flip can be cleared by calling `flip()` with no arguments
 - Orientation can be cleared by calling `orientation()` with no arguments
+- Most watermark parameters can be cleared:
+  - `mark()`
+  - `markWidth()`
+  - `markHeight()`
+  - `markX()`
+  - `markY()`
+  - `markPad()`
 
 ### Fixed
 - Setting an encoding option without an explicit quality value clears the quality parameter
