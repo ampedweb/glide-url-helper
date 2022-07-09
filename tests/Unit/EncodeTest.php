@@ -47,6 +47,15 @@ class EncodeTest extends TestCase
         $this->assertEquals(50, $this->glideUrl->getParams()['q']);
     }
 
+    public function testQualityIsClearedWhenNotExplicitlyPassed()
+    {
+        $this->glideUrl->jpeg(50);
+        $this->assertEquals(50, $this->glideUrl->getParams()['q']);
+
+        $this->glideUrl->jpeg();
+        $this->assertArrayNotHasKey('q', $this->glideUrl->getParams());
+    }
+
 //    public function testGif()
 //    {
 //        $response = $this->get(glide_url('cat.png')->build()->gif()->url());

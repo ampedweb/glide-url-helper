@@ -90,6 +90,8 @@ trait HasEncode
      */
     public function quality(int $quality = null)
     {
+        unset($this->buildParams['q']);
+
         if ($quality !== null) {
             $this->buildParams['q'] = $quality;
         }
