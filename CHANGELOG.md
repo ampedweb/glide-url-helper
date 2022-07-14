@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [0.4.0] - 2022-07-14
+
 ### Added
 - Height and width parameter can be cleared by calling `height()` or `width()` with no argument.
   This also applies to `size()` - both `width` and `height` arguments are optional and the 
