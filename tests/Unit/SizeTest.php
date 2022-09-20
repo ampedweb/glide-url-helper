@@ -30,6 +30,12 @@ class SizeTest extends TestCase
         $this->assertEquals('max', $this->glideUrl->getParams()['fit']);
     }
 
+    public function testFitSetsCorrectFillMaxValue()
+    {
+        $this->glideUrl->fit(Fit::FILL_MAX);
+        $this->assertEquals('fill-max', $this->glideUrl->getParams()['fit']);
+    }
+
     public function testFitSetsCorrectFillValue()
     {
         $this->glideUrl->fit(Fit::FILL);

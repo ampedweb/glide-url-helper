@@ -160,6 +160,7 @@ trait HasWatermarks
             $fit !== Fit::CROP &&
             $fit !== Fit::FILL &&
             $fit !== Fit::MAX &&
+            $fit !== Fit::FILL_MAX &&
             $fit !== Fit::STRETCH
         ) {
             throw new InvalidFitException();

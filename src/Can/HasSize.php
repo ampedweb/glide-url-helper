@@ -16,6 +16,7 @@ use AmpedWeb\GlideUrl\Interfaces\Fit;
  */
 trait HasSize
 {
+
     /**
      * Sets how the image is fitted to its target dimensions.
      *
@@ -29,6 +30,7 @@ trait HasSize
      *                       - Fit::CONTAIN,
      *                       - Fit::MAX,
      *                       - Fit::FILL,
+     *                       - FIT::FILL_MAX,
      *                       - Fit::STRETCH,
      *                       - Fit::CROP
      *
@@ -43,12 +45,13 @@ trait HasSize
             $option !== Fit::CROP &&
             $option !== Fit::FILL &&
             $option !== Fit::MAX &&
+            $option !== Fit::FILL_MAX &&
             $option !== Fit::STRETCH) {
             throw new InvalidFitException();
         }
 
-        $this->buildParams['fit'] = $option;
 
+        $this->buildParams['fit'] = $option;
         return $this;
     }
 

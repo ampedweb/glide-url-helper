@@ -33,6 +33,16 @@ interface Fit
      */
     const FILL = 'fill';
 
+
+    /**
+     * @var string Resizes the image to fit within the width and height boundaries without cropping but up-scaling the image if it’s smaller.
+     * The finished image will have remaining space on either width or height (except if the aspect ratio of the new image is the same as the old image).
+     * The remaining space will be filled with the background color. The resulting image will match the constraining dimensions.
+     *
+     * @see \AmpedWeb\GlideInABox\Can\HasSize::fit()
+     */
+    const FILL_MAX = 'fill-max';
+
     /**
      * @var string Resizes the image to fit within the width and height boundaries without cropping, distorting or
      *      altering the aspect ratio, and will also not increase the size of the image if it is smaller than the

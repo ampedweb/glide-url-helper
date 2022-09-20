@@ -83,7 +83,7 @@ class WatermarksTest extends TestCase
 
     public function testMarkFitSetsCorrectValue()
     {
-        foreach (['contain', 'max', 'fill', 'stretch', 'crop'] as $fit) {
+        foreach (['contain', 'max','fill-max', 'fill', 'stretch', 'crop'] as $fit) {
             $this->glideUrl->markFit($fit);
             $this->assertEquals($fit, $this->glideUrl->getParams()['markfit']);
         }
